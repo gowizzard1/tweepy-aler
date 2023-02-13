@@ -1,0 +1,18 @@
+version: '3'
+services:
+  tweepy-alert:
+    image: tweepy-alert
+    environment:
+      - SMTP_HOST=smtp
+      - SMTP_PORT=25
+      - SMTP_USER=user
+      - SMTP_PASS=pass
+      - NOTIFICATION_EMAIL=notification@example.com
+      - MONITORED_KEYWORDS=keyword1,keyword2,keyword3
+  smtp:
+    image: namshi/smtp
+    environment:
+      - EMAIL=user
+      - PASSWORD=pass
+    ports:
+      - "25:25"
